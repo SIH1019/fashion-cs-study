@@ -47,6 +47,7 @@ public class HelloJava {
         System.out.println("hello java");
     }
 }
+(psvm => 단축어)
 ```
 
 ---
