@@ -598,19 +598,20 @@ totalAnalysisCount  → 전체 분석 횟수
 - 문자열은 `String`을 사용한다.
 - 실무에서는 `int`, `long`, `double`, `boolean`, `String`을 자주 사용한다.
 - 소수나 long은 기본 타입이 아니니까 f나 L로 알려줘야함
-    - 정수 기본값 = int
-      큰 정수 = long → L 붙임
 
-    - 실수 기본값 = double
-    작은 실수 타입 = float → f 붙임
+- 정수 기본값 = int
+큰 정수 = long → L 붙임
 
-    정수는 거의 int
-    진짜 큰 정수만 long + L
+- 실수 기본값 = double
+작은 실수 타입 = float → f 붙임
 
-    실수는 거의 double
-    float은 특별한 경우 아니면 잘 안 씀
+정수는 거의 int
+진짜 큰 정수만 long + L
 
-    - 오늘은 변수 명명 규칙 전까지 공부했다.
+실수는 거의 double
+float은 특별한 경우 아니면 잘 안 씀
+
+- 오늘은 변수 명명 규칙 전까지 공부했다.
 
 ---
 
