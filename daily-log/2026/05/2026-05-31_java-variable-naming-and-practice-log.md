@@ -3,7 +3,11 @@
 ## 1. 오늘 공부한 주제
 
 - Java 변수 명명 규칙
-- 변수 이름 작성 관례
+- Java 이름 작성 관례
+- 패키지 이름 작성 방식
+- 클래스 이름 작성 방식
+- 변수 이름 작성 방식
+- 메서드 이름 작성 방식
 - 카멜 케이스
 - 변수 문제 풀이
 - 변수 값을 이용한 연산
@@ -14,6 +18,7 @@
 ## 2. 오늘 공부한 범위
 
 - 변수 명명 규칙
+- Java 이름 작성 관례
 - 문제와 풀이
 
 ---
@@ -122,23 +127,98 @@ int public;
 
 ---
 
-## 7. 변수 이름 작성 관례
+## 7. Java 이름 작성 관례
 
-- 변수 이름은 소문자로 시작하는 것이 일반적이다.
-- 여러 단어를 연결할 때는 카멜 케이스를 사용한다.
-- 변수 이름은 값의 의미가 드러나도록 작성하는 것이 좋다.
-- 너무 짧고 의미 없는 이름은 피하는 것이 좋다.
+- Java에서는 이름을 지을 때 보통 정해진 관례를 따른다.
+- 문법 오류가 나는 규칙도 있고, 오류는 아니지만 지키는 것이 좋은 관례도 있다.
+- 이름 작성 관례를 지키면 코드가 더 읽기 쉬워진다.
+- 다른 사람이 코드를 봤을 때 패키지, 클래스, 변수, 메서드를 쉽게 구분할 수 있다.
+
+---
+
+### 7-1. 패키지 이름
+
+```java
+package variable.ex;
+```
+
+- 패키지 이름은 모두 소문자를 사용한다.
+- 여러 단어가 필요하면 보통 소문자로 이어서 작성하거나 `.`으로 구분한다.
+- 패키지는 Java 파일을 분류하는 폴더 역할을 한다.
+- 패키지 이름은 대문자로 시작하지 않는다.
+
+좋은 예시:
+
+```java
+package variable;
+package variable.ex;
+package javastudy.variable;
+```
 
 좋지 않은 예시:
 
 ```java
-int a;
-int b;
-int x;
+package Variable;
+package VariableEx;
+package JavaStudy.Variable;
 ```
 
-- 어떤 값을 의미하는지 알기 어렵다.
-- 코드가 길어지면 해석하기 힘들다.
+정리:
+
+```text
+패키지 이름 → 전부 소문자
+```
+
+---
+
+### 7-2. 클래스 이름
+
+```java
+public class VarEx1 {
+}
+```
+
+- 클래스 이름은 대문자로 시작한다.
+- 여러 단어를 사용할 때는 각 단어의 첫 글자를 대문자로 쓴다.
+- 이것을 파스칼 케이스라고 한다.
+
+좋은 예시:
+
+```java
+HelloJava
+VarEx1
+FashionScorePractice
+```
+
+좋지 않은 예시:
+
+```java
+helloJava
+varex1
+fashionScorePractice
+```
+
+정리:
+
+```text
+클래스 이름 → 대문자로 시작
+여러 단어 → 각 단어 첫 글자 대문자
+```
+
+---
+
+### 7-3. 변수 이름
+
+```java
+int colorScore;
+String topColor;
+boolean isColorMatched;
+```
+
+- 변수 이름은 소문자로 시작한다.
+- 여러 단어를 사용할 때는 두 번째 단어부터 첫 글자를 대문자로 쓴다.
+- 이것을 카멜 케이스라고 한다.
+- 변수 이름은 저장하는 값의 의미가 드러나게 짓는 것이 좋다.
 
 좋은 예시:
 
@@ -150,8 +230,92 @@ String topColor;
 boolean isColorMatched;
 ```
 
-- 변수 이름만 봐도 어떤 값을 저장하는지 알 수 있다.
-- 나중에 코드를 다시 봐도 이해하기 쉽다.
+좋지 않은 예시:
+
+```java
+int a;
+int b;
+int x;
+String tc;
+```
+
+정리:
+
+```text
+변수 이름 → 소문자로 시작
+여러 단어 → 카멜 케이스 사용
+```
+
+---
+
+### 7-4. 메서드 이름
+
+```java
+printScore();
+calculateTotalScore();
+```
+
+- 메서드 이름도 변수처럼 소문자로 시작한다.
+- 여러 단어를 사용할 때는 카멜 케이스를 사용한다.
+- 메서드는 보통 동작을 나타내기 때문에 동사로 시작하는 경우가 많다.
+
+예시:
+
+```java
+printScore();
+calculateTotalScore();
+checkColorMatch();
+```
+
+정리:
+
+```text
+메서드 이름 → 소문자로 시작
+여러 단어 → 카멜 케이스 사용
+```
+
+---
+
+### 7-5. 이름 작성 관례 정리
+
+```text
+패키지 이름 → 모두 소문자
+클래스 이름 → 대문자로 시작
+변수 이름 → 소문자로 시작, 카멜 케이스
+메서드 이름 → 소문자로 시작, 카멜 케이스
+```
+
+예시:
+
+```java
+package variable.ex;
+
+public class FashionScorePractice {
+    public static void main(String[] args) {
+        int colorScore = 82;
+        int fitScore = 78;
+        int totalScore = colorScore + fitScore;
+
+        System.out.println(totalScore);
+    }
+}
+```
+
+- `variable.ex`
+  - 패키지 이름
+  - 모두 소문자
+
+- `FashionScorePractice`
+  - 클래스 이름
+  - 대문자로 시작
+
+- `colorScore`, `fitScore`, `totalScore`
+  - 변수 이름
+  - 소문자로 시작하고 카멜 케이스 사용
+
+- `main`, `println`
+  - 메서드 이름
+  - 소문자로 시작
 
 ---
 
@@ -160,7 +324,7 @@ boolean isColorMatched;
 - 카멜 케이스는 여러 단어를 이어서 변수 이름을 만들 때 사용하는 방식이다.
 - 첫 번째 단어는 소문자로 시작한다.
 - 두 번째 단어부터는 첫 글자를 대문자로 쓴다.
-- Java 변수 이름에서는 카멜 케이스를 자주 사용한다.
+- Java 변수 이름과 메서드 이름에서는 카멜 케이스를 자주 사용한다.
 
 예시:
 
@@ -190,7 +354,37 @@ isColorMatched    → Java에서 자주 쓰는 방식
 
 ---
 
-## 9. 변수 명명 규칙 핵심 정리
+## 9. 변수 이름을 의미 있게 짓기
+
+좋지 않은 예시:
+
+```java
+int a;
+int b;
+int x;
+```
+
+- 어떤 값을 의미하는지 알기 어렵다.
+- 코드가 길어지면 해석하기 힘들다.
+- 나중에 다시 봤을 때 변수의 역할을 바로 알기 어렵다.
+
+좋은 예시:
+
+```java
+int age;
+int score;
+int colorScore;
+String topColor;
+boolean isColorMatched;
+```
+
+- 변수 이름만 봐도 어떤 값을 저장하는지 알 수 있다.
+- 코드를 읽기 쉬워진다.
+- 프로젝트가 커질수록 의미 있는 변수명이 중요하다.
+
+---
+
+## 10. 변수 명명 규칙 핵심 정리
 
 - 변수 이름은 영문자, 숫자, `$`, `_`를 사용할 수 있다.
 - 변수 이름은 숫자로 시작할 수 없다.
@@ -203,9 +397,30 @@ isColorMatched    → Java에서 자주 쓰는 방식
 
 ---
 
-## 10. 문제 풀이 1
+## 11. Java 이름 작성 관례 핵심 정리
 
-### 10-1. 문제 내용
+- 패키지 이름은 모두 소문자로 작성한다.
+- 클래스 이름은 대문자로 시작한다.
+- 클래스 이름에서 여러 단어를 사용할 때는 각 단어의 첫 글자를 대문자로 쓴다.
+- 변수 이름은 소문자로 시작한다.
+- 변수 이름에서 여러 단어를 사용할 때는 카멜 케이스를 사용한다.
+- 메서드 이름도 소문자로 시작한다.
+- 메서드 이름에서 여러 단어를 사용할 때도 카멜 케이스를 사용한다.
+
+정리:
+
+```text
+package variable.ex;              → 패키지, 모두 소문자
+public class FashionScorePractice → 클래스, 대문자로 시작
+int colorScore                    → 변수, 소문자로 시작 + 카멜 케이스
+calculateTotalScore()             → 메서드, 소문자로 시작 + 카멜 케이스
+```
+
+---
+
+## 12. 문제 풀이 1
+
+### 12-1. 문제 내용
 
 - 변수 `num1`에 숫자 값을 저장한다.
 - 변수 `num2`에 숫자 값을 저장한다.
@@ -215,7 +430,7 @@ isColorMatched    → Java에서 자주 쓰는 방식
 
 ---
 
-### 10-2. 작성 코드
+### 12-2. 작성 코드
 
 ```java
 package variable.ex;
@@ -234,7 +449,7 @@ public class VarEx1 {
 
 ---
 
-### 10-3. 실행 결과
+### 12-3. 실행 결과
 
 ```text
 7
@@ -244,7 +459,7 @@ public class VarEx1 {
 
 ---
 
-### 10-4. 풀이 정리
+### 12-4. 풀이 정리
 
 - `num1`에는 `4`를 저장했다.
 - `num2`에는 `3`을 저장했다.
@@ -255,9 +470,9 @@ public class VarEx1 {
 
 ---
 
-## 11. 문제 풀이 2
+## 13. 문제 풀이 2
 
-### 11-1. 문제 내용
+### 13-1. 문제 내용
 
 - 클래스 이름은 `VarEx2`로 작성한다.
 - 변수 `num1`을 선언하고 `10`을 할당한다.
@@ -268,7 +483,7 @@ public class VarEx1 {
 
 ---
 
-### 11-2. 작성 코드
+### 13-2. 작성 코드
 
 ```java
 package variable.ex;
@@ -286,7 +501,7 @@ public class VarEx2 {
 
 ---
 
-### 11-3. 실행 결과
+### 13-3. 실행 결과
 
 ```text
 30
@@ -294,7 +509,7 @@ public class VarEx2 {
 
 ---
 
-### 11-4. 풀이 정리
+### 13-4. 풀이 정리
 
 - `num1`에는 `10`을 저장했다.
 - `num2`에는 `20`을 저장했다.
@@ -306,15 +521,15 @@ public class VarEx2 {
 실행 흐름:
 
 ```text
-1. int num1 = 10;          → num1에 10 저장
-2. int num2 = 20;          → num2에 20 저장
-3. int sum = num1 + num2;  → 10 + 20 계산 후 sum에 30 저장
+1. int num1 = 10;           → num1에 10 저장
+2. int num2 = 20;           → num2에 20 저장
+3. int sum = num1 + num2;   → 10 + 20 계산 후 sum에 30 저장
 4. System.out.println(sum); → sum 값 30 출력
 ```
 
 ---
 
-## 12. 문제 풀이를 통해 이해한 점
+## 14. 문제 풀이를 통해 이해한 점
 
 - 변수에는 값을 저장할 수 있다.
 - 변수에 저장된 값은 계산에 사용할 수 있다.
@@ -325,10 +540,14 @@ public class VarEx2 {
 
 ---
 
-## 13. 오늘 새로 알게 된 점
+## 15. 오늘 새로 알게 된 점
 
 - 변수 이름에는 문법 규칙과 관례가 있다.
 - 문법 규칙을 지키지 않으면 컴파일 오류가 발생한다.
+- 패키지 이름은 모두 소문자로 작성한다.
+- 클래스 이름은 대문자로 시작한다.
+- 변수 이름은 소문자로 시작한다.
+- 메서드 이름도 소문자로 시작한다.
 - 변수 이름은 숫자로 시작할 수 없다.
 - 변수 이름에는 공백을 사용할 수 없다.
 - Java 예약어는 변수 이름으로 사용할 수 없다.
@@ -339,19 +558,24 @@ public class VarEx2 {
 
 ---
 
-## 14. 헷갈린 부분
+## 16. 헷갈린 부분
 
 - 변수 이름에 숫자를 넣을 수는 있지만 숫자로 시작할 수는 없다는 점
 - `_`를 사용할 수는 있지만 Java에서는 보통 카멜 케이스를 더 자주 쓴다는 점
 - 예약어와 일반 변수 이름을 구분해야 한다는 점
+- 패키지 이름은 소문자로 작성하고, 클래스 이름은 대문자로 시작한다는 점
+- 변수와 메서드는 둘 다 소문자로 시작하고 카멜 케이스를 사용한다는 점
 - 계산 결과를 바로 출력하는 것과 변수에 저장한 뒤 출력하는 것의 차이
 - 변수 이름을 짧게 짓는 것보다 의미 있게 짓는 것이 더 중요하다는 점
 
 ---
 
-## 15. 내 프로젝트와 연결한 부분
+## 17. 내 프로젝트와 연결한 부분
 
-- 패션 추천 시스템에서도 변수 이름을 의미 있게 지어야 한다.
+- 패션 추천 시스템에서도 이름 작성 관례를 지켜야 한다.
+- 패키지 이름은 모두 소문자로 작성해야 한다.
+- 클래스 이름은 역할이 보이도록 대문자로 시작해야 한다.
+- 변수 이름은 의미 있게 작성해야 한다.
 - 색상, 핏, 기장, 점수, 판단 결과를 변수 이름만 보고 알 수 있어야 한다.
 - 변수 이름이 명확해야 이후 조건문과 알고리즘을 만들 때 헷갈리지 않는다.
 - 계산 결과를 새로운 변수에 저장하는 방식은 패션 점수 계산에도 그대로 사용할 수 있다.
@@ -359,33 +583,7 @@ public class VarEx2 {
 예시:
 
 ```java
-String topColor = "navy";
-String bottomColor = "black";
-
-int colorScore = 82;
-int fitScore = 78;
-int totalScore = colorScore + fitScore;
-
-boolean isColorMatched = true;
-```
-
-정리:
-
-```text
-topColor       → 상의 색상
-bottomColor    → 하의 색상
-colorScore     → 색상 점수
-fitScore       → 핏 점수
-totalScore     → 전체 점수
-isColorMatched → 색상 조합 적합 여부
-```
-
----
-
-## 16. 패션 추천 시스템에 적용할 수 있는 예시 코드
-
-```java
-package variable.ex;
+package fashion.score;
 
 public class FashionScorePractice {
     public static void main(String[] args) {
@@ -400,35 +598,70 @@ public class FashionScorePractice {
 
         System.out.println(topColor);
         System.out.println(bottomColor);
-        System.out.println(colorScore);
-        System.out.println(fitScore);
         System.out.println(totalScore);
         System.out.println(isColorMatched);
     }
 }
 ```
 
-실행 결과:
+정리:
 
 ```text
-navy
-black
-82
-78
-160
-true
+fashion.score        → 패키지 이름, 모두 소문자
+FashionScorePractice → 클래스 이름, 대문자로 시작
+topColor             → 상의 색상
+bottomColor          → 하의 색상
+colorScore           → 색상 점수
+fitScore             → 핏 점수
+totalScore           → 전체 점수
+isColorMatched       → 색상 조합 적합 여부
 ```
 
 ---
 
-## 17. 오늘의 핵심 정리
+## 18. 패션 추천 시스템에 적용할 수 있는 변수명 예시
+
+```java
+String topColor = "navy";
+String bottomColor = "black";
+String shoesColor = "white";
+
+int colorScore = 82;
+int fitScore = 78;
+int lengthScore = 75;
+int totalScore = colorScore + fitScore + lengthScore;
+
+boolean isColorMatched = true;
+boolean isFitBalanced = true;
+```
+
+정리:
+
+```text
+topColor       → 상의 색상
+bottomColor    → 하의 색상
+shoesColor     → 신발 색상
+colorScore     → 색상 점수
+fitScore       → 핏 점수
+lengthScore    → 기장 점수
+totalScore     → 전체 점수
+isColorMatched → 색상 조합 적합 여부
+isFitBalanced  → 핏 균형 여부
+```
+
+---
+
+## 19. 오늘의 핵심 정리
 
 - 변수 이름은 규칙에 맞게 작성해야 한다.
+- 변수 이름은 영문자, 숫자, `$`, `_`를 사용할 수 있다.
 - 변수 이름은 숫자로 시작할 수 없다.
 - 변수 이름에는 공백을 사용할 수 없다.
 - Java 예약어는 변수 이름으로 사용할 수 없다.
-- 변수 이름에는 영문자, 숫자, `$`, `_`를 사용할 수 있다.
-- Java 변수 이름은 보통 카멜 케이스를 사용한다.
+- 패키지 이름은 모두 소문자로 작성한다.
+- 클래스 이름은 대문자로 시작한다.
+- 변수 이름은 소문자로 시작하고 카멜 케이스를 사용한다.
+- 메서드 이름도 소문자로 시작하고 카멜 케이스를 사용한다.
 - 변수 이름은 의미 있게 지어야 한다.
 - 변수에 저장된 값은 연산에 사용할 수 있다.
 - 연산 결과는 바로 출력할 수도 있고, 새로운 변수에 저장할 수도 있다.
@@ -436,7 +669,7 @@ true
 
 ---
 
-## 18. 다음에 할 일
+## 20. 다음에 할 일
 
 - 변수 단원 최종 정리하기
 - 변수 문제 다시 풀어보기
