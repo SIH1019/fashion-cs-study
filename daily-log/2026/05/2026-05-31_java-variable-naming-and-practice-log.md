@@ -18,7 +18,6 @@
 ## 2. 오늘 공부한 범위
 
 - 변수 명명 규칙
-- Java 이름 작성 관례
 - 문제와 풀이
 
 ---
@@ -129,10 +128,11 @@ int public;
 
 ## 7. Java 이름 작성 관례
 
-- Java에서는 이름을 지을 때 보통 정해진 관례를 따른다.
-- 문법 오류가 나는 규칙도 있고, 오류는 아니지만 지키는 것이 좋은 관례도 있다.
-- 이름 작성 관례를 지키면 코드가 더 읽기 쉬워진다.
-- 다른 사람이 코드를 봤을 때 패키지, 클래스, 변수, 메서드를 쉽게 구분할 수 있다.
+- Java에서는 이름을 지을 때 문법 규칙과 작성 관례를 함께 생각해야 한다.
+- 문법 규칙을 어기면 컴파일 오류가 발생한다.
+- 작성 관례는 오류가 나지는 않지만, 지키는 것이 좋다.
+- 관례를 지키면 패키지, 클래스, 변수, 메서드를 쉽게 구분할 수 있다.
+- 코드가 길어져도 이름만 보고 역할을 이해하기 쉬워진다.
 
 ---
 
@@ -142,9 +142,9 @@ int public;
 package variable.ex;
 ```
 
-- 패키지 이름은 모두 소문자를 사용한다.
-- 여러 단어가 필요하면 보통 소문자로 이어서 작성하거나 `.`으로 구분한다.
+- 패키지 이름은 모두 소문자로 작성한다.
 - 패키지는 Java 파일을 분류하는 폴더 역할을 한다.
+- 여러 단어가 필요하면 보통 `.`으로 구분한다.
 - 패키지 이름은 대문자로 시작하지 않는다.
 
 좋은 예시:
@@ -153,6 +153,7 @@ package variable.ex;
 package variable;
 package variable.ex;
 package javastudy.variable;
+package fashion.score;
 ```
 
 좋지 않은 예시:
@@ -161,12 +162,13 @@ package javastudy.variable;
 package Variable;
 package VariableEx;
 package JavaStudy.Variable;
+package Fashion.Score;
 ```
 
 정리:
 
 ```text
-패키지 이름 → 전부 소문자
+패키지 이름 → 모두 소문자
 ```
 
 ---
@@ -259,12 +261,20 @@ calculateTotalScore();
 - 여러 단어를 사용할 때는 카멜 케이스를 사용한다.
 - 메서드는 보통 동작을 나타내기 때문에 동사로 시작하는 경우가 많다.
 
-예시:
+좋은 예시:
 
 ```java
 printScore();
 calculateTotalScore();
 checkColorMatch();
+```
+
+좋지 않은 예시:
+
+```java
+PrintScore();
+calculate_total_score();
+CheckColorMatch();
 ```
 
 정리:
@@ -276,7 +286,7 @@ checkColorMatch();
 
 ---
 
-### 7-5. 이름 작성 관례 정리
+### 7-5. 이름 작성 관례 전체 정리
 
 ```text
 패키지 이름 → 모두 소문자
@@ -288,7 +298,7 @@ checkColorMatch();
 예시:
 
 ```java
-package variable.ex;
+package fashion.score;
 
 public class FashionScorePractice {
     public static void main(String[] args) {
@@ -301,19 +311,25 @@ public class FashionScorePractice {
 }
 ```
 
-- `variable.ex`
+- `fashion.score`
   - 패키지 이름
   - 모두 소문자
 
 - `FashionScorePractice`
   - 클래스 이름
   - 대문자로 시작
+  - 여러 단어의 첫 글자를 대문자로 작성
+
+- `main`
+  - 메서드 이름
+  - 소문자로 시작
 
 - `colorScore`, `fitScore`, `totalScore`
   - 변수 이름
-  - 소문자로 시작하고 카멜 케이스 사용
+  - 소문자로 시작
+  - 카멜 케이스 사용
 
-- `main`, `println`
+- `println`
   - 메서드 이름
   - 소문자로 시작
 
@@ -321,7 +337,7 @@ public class FashionScorePractice {
 
 ## 8. 카멜 케이스
 
-- 카멜 케이스는 여러 단어를 이어서 변수 이름을 만들 때 사용하는 방식이다.
+- 카멜 케이스는 여러 단어를 이어서 변수 이름이나 메서드 이름을 만들 때 사용하는 방식이다.
 - 첫 번째 단어는 소문자로 시작한다.
 - 두 번째 단어부터는 첫 글자를 대문자로 쓴다.
 - Java 변수 이름과 메서드 이름에서는 카멜 케이스를 자주 사용한다.
